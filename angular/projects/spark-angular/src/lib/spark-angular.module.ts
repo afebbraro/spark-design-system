@@ -13,6 +13,7 @@ import { SprkDatepickerModule } from './directives/inputs/sprk-datepicker/sprk-d
 import { SprkFieldErrorModule } from './directives/inputs/sprk-field-error/sprk-field-error.module';
 import { SprkHelperTextModule } from './directives/inputs/sprk-helper-text/sprk-helper-text.module';
 import { SprkInputModule } from './directives/inputs/sprk-input/sprk-input.module';
+import { SprkSelectModule } from './directives/inputs/sprk-select/sprk-select.module';
 import { SprkRadioInputModule } from './directives/inputs/sprk-radio-input/sprk-radio-input.module';
 import { SprkCheckboxInputModule } from './directives/inputs/sprk-checkbox-input/sprk-checkbox-input.module';
 import { SprkLabelModule } from './directives/inputs/sprk-label/sprk-label.module';
@@ -147,6 +148,7 @@ import { SprkSpinnerModule } from './directives/sprk-spinner/sprk-spinner.module
     SprkLegendModule,
     SprkDividerDirectiveModule,
     SprkSpinnerModule,
+    SprkSelectModule,
   ],
 })
 export class SparkAngularModule {}
