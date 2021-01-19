@@ -170,6 +170,8 @@ SprkTextInput.propTypes = {
    * 	If true, will render the component in the disabled state.
    */
   disabled: PropTypes.bool,
+  type: PropTypes.string,
+  value: PropTypes.string,
   /**
    * A space-separated string of valid HTML ids to
    * add to the aria-describedby attribute on the Input.
