@@ -94,7 +94,6 @@ class SprkInputContainer extends Component {
       }
     });
 
-
     return (
       <div
         data-analytics={analyticsString}
