@@ -215,12 +215,16 @@ export class SprkDropdownComponent implements OnChanges {
    */
   @Input()
   isOpen = false;
+
+  // TODO: Remove `title` in issue
   /**
+   * Deprecated – use `heading` instead.
    * The value supplied will be displayed
    * in a box above the choices.
    */
   @Input()
   title: string;
+
   /**
    * The value supplied will be assigned to
    * the title text.
