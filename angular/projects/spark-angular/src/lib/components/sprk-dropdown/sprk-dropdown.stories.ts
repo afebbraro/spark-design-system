@@ -45,7 +45,7 @@ export const defaultStory = () => ({
     <sprk-dropdown
       screenReaderText="Description of default dropdown."
       dropdownType="base"
-      title="My Choices"
+      heading="My Choices"
       triggerIconType="settings"
       additionalTriggerClasses="sprk-b-Link--plain"
       additionalIconClasses="sprk-c-Icon--l"
@@ -77,7 +77,7 @@ export const informational = () => ({
       dropdownType="informational"
       additionalTriggerClasses="sprk-b-Link--plain"
       triggerText="Make a selection..."
-      title="My Choices"
+      heading="My Choices"
       triggerIconType="chevron-down"
       [choices]="[{
         content: {
