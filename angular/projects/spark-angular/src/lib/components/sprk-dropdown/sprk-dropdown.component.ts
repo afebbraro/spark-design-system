@@ -212,6 +212,7 @@ export class SprkDropdownComponent implements OnChanges {
   iconAdditionalClasses: string;
   // TODO: #3800 Remove `additionalIconClasses` input, now replaced with `iconAdditionalClasses`
   /**
+   * Deprecated. Use `iconAdditionalClasses` instead.
    * Expects a space separated string
    * of classes to be added to the
    * icon.
@@ -219,6 +220,14 @@ export class SprkDropdownComponent implements OnChanges {
   @Input()
   additionalIconClasses: string;
   /**
+   * Expects a space separated string of
+   * classes to be added to the trigger link element.
+   */
+  @Input()
+  triggerAdditionalClasses: string;
+  // TODO: #3800 Remove `additionalIconClasses` input, now replaced with `iconAdditionalClasses`
+  /**
+   * Deprecated. Use `triggerAdditionalClasses` instead.
    * Expects a space separated string of
    * classes to be added to the trigger link element.
    */
@@ -415,7 +424,7 @@ export class SprkDropdownComponent implements OnChanges {
   /**
    * @ignore
    */
-  returnSecondIfBoth(a, b): void {
+  returnSecondIfBoth(a, b): any {
     if (a && b) {
       return b;
     }
@@ -469,8 +478,13 @@ export class SprkDropdownComponent implements OnChanges {
   getTriggerClasses(): string {
     const classArray: string[] = ['sprk-c-Dropdown__trigger'];
 
-    if (this.additionalTriggerClasses) {
-      this.additionalTriggerClasses.split(' ').forEach((className) => {
+    if (this.additionalTriggerClasses || this.triggerAdditionalClasses) {
+      // TODO: #3800 Remove `additionalIconClasses` input, now replaced with `iconAdditionalClasses`
+      const classes = this.returnSecondIfBoth(
+        this.additionalTriggerClasses,
+        this.triggerAdditionalClasses,
+      );
+      classes.split(' ').forEach((className) => {
         classArray.push(className);
       });
     }
