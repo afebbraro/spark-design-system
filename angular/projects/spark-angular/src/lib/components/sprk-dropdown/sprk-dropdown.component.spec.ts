@@ -220,6 +220,25 @@ describe('SprkDropdownComponent', () => {
     );
   });
 
+  // it should respond to changes to additionalTriggerClasses
+
+  it('should set a value if triggerAdditionalClasses has a value', () => {
+    wrapperComponent.triggerAdditionalClasses = 'sprk-u-man';
+    fixture.detectChanges();
+    expect(dropdownTriggerElement.classList.contains('sprk-u-man')).toEqual(
+      true,
+    );
+  });
+
+  // TODO: #3800 Remove `additionalTriggerClasses` tests
+  it('should prefer triggerAdditionalClasses over additionalTriggerClasses', () => {
+    wrapperComponent.additionalTriggerClasses = 'oldClass';
+    wrapperComponent.triggerAdditionalClasses = 'newClass';
+    fixture.detectChanges();
+    expect(dropdownTriggerElement.classList.contains('newClass')).toEqual(true);
+  });
+
+  // TODO: #3800 Remove `additionalTriggerTextClasses` tests
   it('should set a value if additionalTriggerTextClasses has a value', () => {
     wrapperComponent.additionalTriggerTextClasses = 'sprk-u-man';
     fixture.detectChanges();
@@ -263,6 +282,33 @@ describe('SprkDropdownComponent', () => {
       .querySelector('.sprk-c-Dropdown__links')
       .getAttribute('aria-label');
     expect(listBoxAria).toEqual('test');
+  });
+
+  // TODO: #3800 Remove `heading` tests
+  it('should apply an aria-label to listbox when heading provided', () => {
+    fixture.detectChanges();
+    wrapperComponent.heading = 'test';
+    dropdownTriggerElement.click();
+
+    fixture.detectChanges();
+    const listBoxAria = fixture.nativeElement
+      .querySelector('.sprk-c-Dropdown__links')
+      .getAttribute('aria-label');
+    expect(listBoxAria).toEqual('test');
+  });
+
+  // TODO: #3800 Remove `heading` tests
+  it('should prefer heading over title', () => {
+    fixture.detectChanges();
+    wrapperComponent.title = 'title';
+    wrapperComponent.heading = 'heading';
+    dropdownTriggerElement.click();
+
+    fixture.detectChanges();
+    const listBoxAria = fixture.nativeElement
+      .querySelector('.sprk-c-Dropdown__links')
+      .getAttribute('aria-label');
+    expect(listBoxAria).toEqual('heading');
   });
 
   it('should apply an aria-label to listbox when screenReaderText is provided', () => {
@@ -423,26 +469,42 @@ describe('SprkDropdownComponent', () => {
   template: `
     <sprk-dropdown
       [dropdownType]="dropdownType"
+      [variant]="variant"
       [triggerText]="triggerText"
       [choices]="choices"
       [additionalClasses]="additionalClasses"
       [idString]="idString"
       [additionalTriggerClasses]="additionalTriggerClasses"
+      [triggerAdditionalClasses]="triggerAdditionalClasses"
       [additionalTriggerTextClasses]="additionalTriggerTextClasses"
+      [triggerTextAdditionalClasses]="triggerTextAdditionalClasses"
+      [additionalIconClasses]="additionalIconClasses"
+      [iconAdditionalClasses]="iconAdditionalClasses"
       [screenReaderText]="screenReaderText"
+      [triggerIconType]="triggerIconType"
+      [triggerIconName]="triggerIconName"
       [title]="title"
+      [heading]="heading"
     >
     </sprk-dropdown>
   `,
 })
 class TestWrapperComponent {
   dropdownType: string;
+  variant: string;
   triggerText: string;
   choices: ISprkDropdownChoice[];
   additionalClasses: string;
   idString: string;
   additionalTriggerClasses: string;
   additionalTriggerTextClasses: string;
+  triggerAdditionalClasses: string;
+  triggerTextAdditionalClasses: string;
+  additionalIconClasses: string;
+  iconAdditionalClasses: string;
+  triggerIconType: string;
+  triggerIconName: string;
   screenReaderText: string;
   title: string;
+  heading: string;
 }
