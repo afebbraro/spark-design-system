@@ -369,6 +369,7 @@ describe('SprkDropdownComponent', () => {
     ).toEqual('Choose One');
   });
 
+  // TODO: #3800 Remove `title` tests
   it('should apply an aria-label to listbox when title provided', () => {
     fixture.detectChanges();
     wrapperComponent.title = 'test';
@@ -381,7 +382,6 @@ describe('SprkDropdownComponent', () => {
     expect(listBoxAria).toEqual('test');
   });
 
-  // TODO: #3800 Remove `heading` tests
   it('should apply an aria-label to listbox when heading provided', () => {
     fixture.detectChanges();
     wrapperComponent.heading = 'test';
@@ -394,7 +394,7 @@ describe('SprkDropdownComponent', () => {
     expect(listBoxAria).toEqual('test');
   });
 
-  // TODO: #3800 Remove `heading` tests
+  // TODO: #3800 Remove `title` tests
   it('should prefer heading over title', () => {
     fixture.detectChanges();
     wrapperComponent.title = 'title';

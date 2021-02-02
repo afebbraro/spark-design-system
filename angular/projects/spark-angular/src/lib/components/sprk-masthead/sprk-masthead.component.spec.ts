@@ -4,6 +4,7 @@ import { SprkIconComponent } from '../sprk-icon/sprk-icon.component';
 import { SprkLinkDirective } from '../../directives/sprk-link/sprk-link.directive';
 import { SprkMastheadAccordionComponent } from './sprk-masthead-accordion/sprk-masthead-accordion.component';
 import { SprkMastheadAccordionItemComponent } from './sprk-masthead-accordion-item/sprk-masthead-accordion-item.component';
+import { SprkMastheadSelectorComponent } from './sprk-masthead-selector/sprk-masthead-selector.component';
 import { SprkMastheadComponent } from './sprk-masthead.component';
 import { SprkDropdownComponent } from '../sprk-dropdown/sprk-dropdown.component';
 describe('SprkMastheadComponent', () => {
@@ -24,6 +25,7 @@ describe('SprkMastheadComponent', () => {
         SprkDropdownComponent,
         SprkMastheadAccordionComponent,
         SprkMastheadAccordionItemComponent,
+        SprkMastheadSelectorComponent,
       ],
     }).compileComponents();
   }));
