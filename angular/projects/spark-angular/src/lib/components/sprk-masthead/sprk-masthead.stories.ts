@@ -468,7 +468,7 @@ export const extended = () => ({
           >
             <div
               class="sprk-c-Dropdown__footer sprk-u-TextAlign--center"
-              sprkDropdownFooter
+              sprkMastheadSelectorFooter
             >
               <a
                 sprkLink
