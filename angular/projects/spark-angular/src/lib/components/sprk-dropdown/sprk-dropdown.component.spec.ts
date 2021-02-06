@@ -256,14 +256,14 @@ describe('SprkDropdownComponent', () => {
     ];
     dropdownTriggerElement.click();
     fixture.detectChanges();
-    expect(dropDownComponent.isOpen).toEqual(true);
+    expect(dropdownComponent.isOpen).toEqual(true);
     const listElement = fixture.nativeElement.querySelectorAll('li')[0];
     const listLink = fixture.nativeElement.querySelector(
       '.sprk-c-Dropdown__link',
     );
     listElement.dispatchEvent(new Event('click'));
     fixture.detectChanges();
-    expect(dropDownComponent.choices[0]['active']).toEqual(false);
+    expect(dropdownComponent.choices[0]['active']).toEqual(false);
     expect(listLink.getAttribute('href')).toEqual('/test');
   });
 
@@ -282,14 +282,14 @@ describe('SprkDropdownComponent', () => {
     ];
     dropdownTriggerElement.click();
     fixture.detectChanges();
-    expect(dropDownComponent.isOpen).toEqual(true);
+    expect(dropdownComponent.isOpen).toEqual(true);
     const listElement = fixture.nativeElement.querySelectorAll('li')[0];
     const listLink = fixture.nativeElement.querySelector(
       '.sprk-c-Dropdown__link',
     );
     listElement.dispatchEvent(new Event('click'));
     fixture.detectChanges();
-    expect(dropDownComponent.choices[0]['active']).toEqual(false);
+    expect(dropdownComponent.choices[0]['active']).toEqual(false);
     expect(listLink.getAttribute('href')).toEqual('/router-test');
   });
 
