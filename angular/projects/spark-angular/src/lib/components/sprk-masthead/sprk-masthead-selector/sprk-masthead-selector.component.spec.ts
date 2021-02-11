@@ -77,9 +77,13 @@ describe('SprkMastheadSelectorComponent', () => {
   });
 
   it('should have the correct base classes on Masthead Selector content', () => {
-    expect(mastheadSelectorComponent.getClasses()).toEqual(
-      'sprk-c-Dropdown sprk-c-Masthead__selector-dropdown',
-    );
+    mastheadSelectorTriggerElement.click();
+    fixture.detectChanges();
+    expect(
+      fixture.nativeElement.querySelectorAll(
+        '.sprk-c-Dropdown.sprk-c-Masthead__selector-dropdown',
+      ).length,
+    ).toEqual(1);
   });
 
   it('should add the correct classes if additionalClasses are supplied', () => {
@@ -166,17 +170,25 @@ describe('SprkMastheadSelectorComponent', () => {
 
   it('should set href value if href is set on choice item', () => {
     fixture.detectChanges();
-    expect(
-      mastheadSelectorTriggerElement.classList.contains('sprk-u-man'),
-    ).toEqual(true);
-  });
-
-  it('should set a value if triggerTextAdditionalClasses has a value', () => {
-    wrapperComponent.triggerTextAdditionalClasses = 'sprk-u-man';
+    wrapperComponent.choices = [
+      {
+        text: 'Option 1',
+        value: 'Option 1',
+        href: '/test',
+      },
+      {
+        text: 'Option 2',
+        value: 'Option 2',
+      },
+    ];
+    mastheadSelectorTriggerElement.click();
     fixture.detectChanges();
-    expect(
-      mastheadSelectorTriggerTextElement.classList.contains('sprk-u-man'),
-    ).toEqual(true);
+    expect(mastheadSelectorComponent.isOpen).toEqual(true);
+    // TODO: #3835 Create separate classes for sprk-masthead-selector
+    const listLink = fixture.nativeElement.querySelector(
+      '.sprk-c-Dropdown__link',
+    );
+    expect(listLink.getAttribute('href')).toEqual('/test');
   });
 
   it('should apply aria-label when triggerText is provided', () => {
@@ -370,7 +382,7 @@ describe('SprkMastheadSelectorComponent', () => {
   it('should set dropdown title to selector', () => {
     wrapperComponent.selector = 'test';
     fixture.detectChanges();
-    dropdownTriggerElement.click();
+    mastheadSelectorTriggerElement.click();
     fixture.detectChanges();
 
     expect(
