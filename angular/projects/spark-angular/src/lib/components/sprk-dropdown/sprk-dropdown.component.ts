@@ -139,9 +139,13 @@ import { ISprkDropdownChoice } from './sprk-dropdown.interfaces';
                 }"
                 [attr.aria-label]="choice.content.title"
               >
-                <p class="sprk-b-TypeBodyOne">{{ choice.content.title }}</p>
-                <p>{{ choice.content.infoLine1 }}</p>
-                <p>{{ choice.content.infoLine2 }}</p>
+                <p sprkText variant="bodyOne">{{ choice.content.title }}</p>
+                <p sprkText variant="bodyTwo" *ngIf="choice.content.infoLine1">
+                  {{ choice.content.infoLine1 }}
+                </p>
+                <p sprkText variant="bodyTwo" *ngIf="choice.content.infoLine2">
+                  {{ choice.content.infoLine2 }}
+                </p>
               </a>
               <a
                 sprkLink
@@ -155,13 +159,9 @@ import { ISprkDropdownChoice } from './sprk-dropdown.interfaces';
                 }"
                 [attr.aria-label]="choice.content.title"
               >
-                <p class="sprk-b-TypeBodyOne">{{ choice.content.title }}</p>
-                <p sprkText variant="bodyTwo" *ngIf="choice.content.infoLine1">
-                  {{ choice.content.infoLine1 }}
-                </p>
-                <p sprkText variant="bodyTwo" *ngIf="choice.content.infoLine2">
-                  {{ choice.content.infoLine2 }}
-                </p>
+                <p sprkText variant="bodyOne">{{ choice.content.title }}</p>
+                <p sprkText variant="bodyTwo">{{ choice.content.infoLine1 }}</p>
+                <p sprkText variant="bodyTwo">{{ choice.content.infoLine2 }}</p>
               </a>
             </ng-template>
           </li>
