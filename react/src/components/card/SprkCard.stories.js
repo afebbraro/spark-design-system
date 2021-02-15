@@ -48,8 +48,8 @@ export const highlightedHeader = () => (
     variant="highlightedHeader"
     highlightedHeaderConfig={{
       bodyText: `Lorem ipsum dolor sit amet, doctus invenire vix te.
-      Facilisi perpetua an pri, errem commune mea at, mei prima tantas
-      signiferumque at. Numquam.`,
+         Facilisi perpetua an pri, errem commune mea at,
+         mei prima tantas signiferumque at. Numquam.`,
       title: 'Card Title',
       description: 'Description',
     }}
