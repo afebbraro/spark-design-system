@@ -21,6 +21,7 @@ export default {
       SprkStack,
       SprkLink,
       SprkStackItem,
+      SprkIcon,
     },
     jest: ['SprkCard'],
     info: `${markdownDocumentationLinkBuilder('card')}`,
